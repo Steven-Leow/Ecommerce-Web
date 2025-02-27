@@ -1,0 +1,38 @@
+<!-- product_details.html -->
+{% extends "base.html" %} {% block title %} {{ product.name }} {% endblock %} {%
+block content %}
+<div class="container mt-5">
+  <h1>{{ product.name }}</h1>
+
+  <div class="row align-items-center">
+    <!-- Align items center -->
+    <div class="col-md-6">
+      <img
+        src="{{ url_for('static', filename=product.image) }}"
+        alt="{{ product.name }}"
+        class="img-fluid"
+        style="max-height: 450px; object-fit: cover"
+      />
+    </div>
+    <div class="col-md-6">
+      <p><strong>Description:</strong> {{ product.description }}</p>
+      <p>
+        <strong>Available Colors:</strong> {{ product.colors | join(', ') if
+        product.colors else 'N/A' }}
+      </p>
+      <p>
+        <strong>Available Sizes:</strong> {{ product.sizes | join(', ') if
+        product.sizes else 'N/A' }}
+      </p>
+      <p><strong>Price:</strong> ${{ product.price }}</p>
+      <form
+        action="{{ url_for('main.add_to_cart', product_id=product.id) }}"
+        method="POST"
+      >
+        <button type="submit" class="btn btn-primary">Add to Cart</button>
+      </form>
+      <a href="/products" class="btn btn-secondary">Back to Products</a>
+    </div>
+  </div>
+</div>
+{% endblock %}
