@@ -1,6 +1,6 @@
 {% extends "base.html" %} {% block title %}Product Listing{% endblock %} {%
 block content %}
-<h1>Product Listing</h1>
+<h1>Products</h1>
 <div class="row">
   {% for product in products %}
   <div class="col-md-4">
@@ -11,8 +11,8 @@ block content %}
         <img
           src="{{ url_for('static', filename=product.image) }}"
           alt="{{ product.name }}"
-          class="card-img-top"
-          style="max-height: 450px; object-fit: cover"
+          class="card-img-top img-fluid"
+          style="height: 250px; width: 100%; object-fit: cover"
         />
         {% endif %}
         <p class="card-text">{{ product.description }}</p>
