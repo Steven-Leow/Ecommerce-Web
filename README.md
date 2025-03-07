@@ -56,6 +56,3 @@ The chatbot is built with FastAPI and interacts with users through a simple UI i
 - Improve chatbot responses with AI.
 - Integrate a payment gateway.
 
-## License
-This project is open-source and available under the MIT License.
-
